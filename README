@@ -1,3 +1,10 @@
+
+REQUIRES ...
+
+	gem: juggernaut
+	plugin: juggernaut_plugin 
+	config/juggernaut.yml to exist.
+
 This plugin contains minor modifications to juggernaut_plugin
 
 These include ...
@@ -10,5 +17,4 @@ The creation of script/juggernaut for controlling the juggernaut daemon
 
 	script/juggernaut start|restart|stop|status
 
-This expects config/juggernaut.yml to exist.
 
