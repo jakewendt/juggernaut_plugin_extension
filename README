@@ -1,0 +1,14 @@
+This plugin contains minor modifications to juggernaut_plugin
+
+These include ...
+
+The addition of a :jqjuggernaut for register_javascript_expansion allowing the usage of
+
+	<%= javascript_include_tag :jqjuggernaut %>
+
+The creation of script/juggernaut for controlling the juggernaut daemon
+
+	script/juggernaut start|restart|stop|status
+
+This expects config/juggernaut.yml to exist.
+

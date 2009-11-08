@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+RAILS_HOME = File.expand_path(File.join(File.dirname(__FILE__),".."))
+RAILS_ROOT = RAILS_HOME	#	RAILS_ROOT referenced in juggernaut_plugin
+
+require 'rubygems'
+require 'erb'
+require 'juggernaut'
+require "#{RAILS_HOME}/vendor/plugins/juggernaut_plugin/lib/juggernaut"
+require "#{RAILS_HOME}/vendor/plugins/juggernaut_plugin_extension/lib/juggernaut_config"
+require "#{RAILS_HOME}/vendor/plugins/juggernaut_plugin_extension/lib/juggernaut_start_stop"
+
+daemon = Juggernaut::StartStop.new
+case ARGV[0].downcase
+	when 'start'; daemon.start
+	when 'stop'; daemon.stop
+	when 'restart'; daemon.stop;daemon.start
+	when 'status'
+	  if daemon.running?
+	    puts "Juggernaut Running"
+	    exit
+	  else
+	    puts "Juggernaut Not Running"
+	    exit!(daemon.status)
+	  end
+	else
+		puts "Usage: #{$0} start|stop|restart|status"
+end
