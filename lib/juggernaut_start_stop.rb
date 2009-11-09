@@ -81,9 +81,10 @@ module Juggernaut
 
 		def start_juggernaut
 			Juggernaut::Runner.run([
-				"-c",CONFIG_FILE,
-				"-P",PID_FILE,
-				"-l","#{RAILS_ROOT}/log/juggernaut.log", "-d"
+				"--config",CONFIG_FILE,
+				"--pid",PID_FILE,
+				"--log","#{RAILS_ROOT}/log/juggernaut.log", 
+				"--daemon"
 			])
 		end
 
