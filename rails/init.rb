@@ -6,10 +6,10 @@ ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jqjuggernaut 
 #	This is required when testing and using juggernaut.  The helper calls
 #		request.session_options[:id]
 #	In development and production request is a Request
-#	but in test it is a TestRequest which does not seem to respond to 
-#	session_options even though it should, so ...
+#	but in test it is a TestRequest which 
+#	session_options is nil
 ActionController::TestRequest.class_eval do
-        def session_options
-                { :id => '12345' }
-        end
+	def session_options
+		{ :id => '12345' }
+	end
 end if RAILS_ENV == 'test'
