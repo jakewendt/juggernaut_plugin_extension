@@ -1,3 +1,4 @@
+= JuggernautPluginExtension
 
 REQUIRES ...
 
